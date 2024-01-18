@@ -94,5 +94,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\closeBtn_default.png" />
+    <Resource Include="Img\closeBtn_MouseOver.png" />
+    <Resource Include="Img\img_contact.png" />
+    <Resource Include="Img\img_home.png" />
+    <Resource Include="Img\img_map.png" />
+    <Resource Include="Img\img_message.png" />
+    <Resource Include="Img\img_setting.png" />
+    <Resource Include="Img\img_signout.png" />
+    <Resource Include="Img\tgBtn_default.png" />
+    <Resource Include="Img\tgBtn_MouseOver.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,106 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="MainWindow" Height="600" Width="800">
-    <Grid >
+
+    <Window.Resources>
+
+        <ImageBrush x:Key="mouseOver" ImageSource="Img\tgBtn_MouseOver.png"/>
+
+        <Style x:Key="tgBtn_style" TargetType="ToggleButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border  x:Name="borderToggle"
+                                 Background="{TemplateBinding Background}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}">
+                            
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="borderToggle" Value="{StaticResource mouseOver}"/>
+                                <Setter Property="BorderBrush" TargetName="borderToggle" Value="{StaticResource mouseOver}"/>
+                            </Trigger>
+
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="borderToggle" Value="{StaticResource mouseOver}"/>
+                                <Setter Property="BorderBrush" TargetName="borderToggle" Value="{StaticResource mouseOver}"/>
+                            </Trigger>
+                             
+                        </ControlTemplate.Triggers>
+                                                
+                        
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         
+    </Window.Resources>
+    
+    
+    
+    
+    
+    <Grid Background="#18122B">
+        <Grid  Width="65"
+               HorizontalAlignment="Left"
+               Background="#393053"
+               x:Name="nav_pnl">
+
+            <StackPanel>
+
+                <Grid Height="90">
+                    <ToggleButton  VerticalAlignment="Center"
+                                   HorizontalAlignment="Left"
+                                   Margin="10 -20 0 10"
+                                   Width="40"
+                                   Height="40"
+                                   BorderThickness="0"
+                                   x:Name="tgBtn_nav"
+                                   Style="{StaticResource tgBtn_style}"
+                                   >
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="Img\tgBtn_default.png" Stretch="None"/>
+                        </ToggleButton.Background>
+
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="Hidepanel">
+                                        <DoubleAnimation  Storyboard.TargetName="nav_pnl"
+                                                          Storyboard.TargetProperty="Width"
+                                                          BeginTime="0:0:0"
+                                                          From="230" To="65"
+                                                          Duration="0:0:0.3"> 
+                                            
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+
+
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="Showpanel">
+                                        <DoubleAnimation  Storyboard.TargetName="nav_pnl"
+                                                          Storyboard.TargetProperty="Width"
+                                                          BeginTime="0:0:0"
+                                                          From="65" To="230"
+                                                          Duration="0:0:0.3">
+                                            
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            
+                        </ToggleButton.Triggers>
+                        
+                    </ToggleButton>
+                </Grid>
+                
+            </StackPanel>
+            
+        </Grid>
     </Grid>
 </Window>
