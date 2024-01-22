@@ -74,6 +74,16 @@
     
     
     <Grid Background="#18122B">
+
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="Img\background.jpg" Stretch="Fill"/>
+            </Grid.Background>
+        </Grid>
+        
+        
+        
+        
         <Grid  Width="65"
                HorizontalAlignment="Left"
                Background="#393053"

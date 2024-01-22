@@ -106,5 +106,8 @@
     <Resource Include="Img\tgBtn_default.png" />
     <Resource Include="Img\tgBtn_MouseOver.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Img\background.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
